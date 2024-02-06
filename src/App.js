@@ -3,7 +3,7 @@ import Homepage from "./scenes/homePage";
 import LoginPage from "./scenes/loginPage";
 import ProfilePage from "./scenes/profilePage";
 import { useMemo } from "react";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
@@ -12,6 +12,7 @@ function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)));
   const isAuth = useSelector((state) => state.token);
+  console.log("serverURL",process.env.REACT_APP_SERVER_URL);
   return (
     <div className="app">
       <Router>

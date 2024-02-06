@@ -18,11 +18,12 @@ const Friend = ({ friendId, name, subtitle, userPicturePath}) => {
     const primaryDark = palette.primary.dark;
     const main = palette.primary.main;
     const medium = palette.primary.medium;
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
     
     const isFriend = friends.find((friend) => friend._id === friendId);
     const patchFriend = async() => {
         const response = await fetch(
-            `http://localhost:3001/user/${_id}/${friendId}`, 
+            `${serverUrl}/user/${_id}/${friendId}`, 
             {
                 method : "PATCH",
                 headers: {

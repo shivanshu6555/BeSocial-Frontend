@@ -22,9 +22,10 @@ const UserWidget = ({ userId, picturePath }) => {
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
+  const serverUrl = process.env.REACT_APP_SERVER_URL;
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/user/${userId}`, {
+    const response = await fetch(`${serverUrl}/user/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

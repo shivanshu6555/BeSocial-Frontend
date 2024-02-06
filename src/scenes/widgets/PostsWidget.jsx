@@ -7,10 +7,11 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
   const post = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
+  const serverUrl = process.env.REACT_APP_SERVER_URL;
 
   const getPosts = async () => {
     console.log("debug1");
-    const response = await fetch("http://localhost:3001/post", {
+    const response = await fetch(`${serverUrl}/post`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -22,7 +23,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/post/${userId}/posts`,
+      `${serverUrl}/post/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

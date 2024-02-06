@@ -1,5 +1,5 @@
 import {Box} from "@mui/material";
-
+const serverUrl = process.env.REACT_APP_SERVER_URL;
 const UserImage = ({image, size = "60px"}) => {
     return (
         <Box width={size} height={size}>
@@ -8,7 +8,7 @@ const UserImage = ({image, size = "60px"}) => {
             width={size}
             height={size}
             alt="user"
-            src={`http://localhost:3001/assests/${image}`}
+            src={`${serverUrl}/assests/${image}`}
             />
         </Box>
     );

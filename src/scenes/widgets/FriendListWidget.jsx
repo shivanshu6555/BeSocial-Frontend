@@ -10,10 +10,11 @@ const FriendListWidget = ({ userId }) => {
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
+const serverUrl = process.env.REACT_APP_SERVER_URL;
 
   const getFriends = async () => {
     const response = await fetch(
-      `http://localhost:3001/user/${userId}/friends`,
+      `${serverUrl}/user/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
